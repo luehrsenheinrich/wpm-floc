@@ -23,6 +23,7 @@ This plugin tells your WordPress system to send a special header that disables F
 [Web.dev - What is Federated Learning of Cohorts (FLoC)?](https://web.dev/floc/)
 [Adalytics.io - Who is sharing data with Google's FLoC ad algorithm?](https://adalytics.io/blog/google-chrome-floc)
 [Brave Browser - Why Brave disables FLoC](https://brave.com/why-brave-disables-floc/)
+[The WICG Draft for FLoC](https://wicg.github.io/floc/)
 
 == Installation ==
 = From within WordPress =
