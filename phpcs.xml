@@ -35,7 +35,7 @@
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" value="wpmfloc" />
+			<property name="text_domain" value="wpm-floc" />
 		</properties>
 	</rule>
 

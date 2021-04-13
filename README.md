@@ -32,7 +32,7 @@ new repository. So let's get started:
 
 ### Theme Slug & Names
 
-- [ ] Search & Replace (case sensitive) `wpmfloc` with your new WordPress plugin slug
+- [ ] Search & Replace (case sensitive) `wpm-floc` with your new WordPress plugin slug
 - [ ] Search & Replace (case sensitive) `WPMFLOC` with your new WordPress plugin slug in uppercase
 - [ ] Check success in `package.json`
 - [ ] Adjust `name` in `package.json`

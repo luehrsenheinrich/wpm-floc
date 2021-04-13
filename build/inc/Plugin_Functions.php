@@ -47,7 +47,7 @@ class Plugin_Functions {
 				throw new InvalidArgumentException(
 					sprintf(
 						/* translators: 1: classname/type of the variable, 2: interface name */
-						__( 'The plugin functions component %1$s does not implement the %2$s interface.', 'wpmfloc' ),
+						__( 'The plugin functions component %1$s does not implement the %2$s interface.', 'wpm-floc' ),
 						gettype( $component ),
 						Plugin_Function_Interface::class
 					)
@@ -73,7 +73,7 @@ class Plugin_Functions {
 			throw new BadMethodCallException(
 				sprintf(
 					/* translators: %s: template tag name */
-					__( 'The plugin function %s does not exist.', 'wpmfloc' ),
+					__( 'The plugin function %s does not exist.', 'wpm-floc' ),
 					'wp_wpmfloc()->' . $method . '()'
 				)
 			);
@@ -99,7 +99,7 @@ class Plugin_Functions {
 				throw new InvalidArgumentException(
 					sprintf(
 						/* translators: 1: template tag method name, 2: component class name */
-						__( 'The plugin function method %1$s registered by plugin component %2$s must either be a callable or an array.', 'wpmfloc' ),
+						__( 'The plugin function method %1$s registered by plugin component %2$s must either be a callable or an array.', 'wpm-floc' ),
 						$method_name,
 						get_class( $component )
 					)
@@ -109,7 +109,7 @@ class Plugin_Functions {
 				throw new RuntimeException(
 					sprintf(
 						/* translators: 1: template tag method name, 2: component class name */
-						__( 'The plugin function method %1$s registered by plugin component %2$s conflicts with an already registered plugin function of the same name.', 'wpmfloc' ),
+						__( 'The plugin function method %1$s registered by plugin component %2$s conflicts with an already registered plugin function of the same name.', 'wpm-floc' ),
 						$method_name,
 						get_class( $component )
 					)

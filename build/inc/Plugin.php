@@ -51,7 +51,7 @@ class Plugin {
 				throw new InvalidArgumentException(
 					sprintf(
 						/* translators: 1: classname/type of the variable, 2: interface name */
-						__( 'The plugin component %1$s does not implement the %2$s interface.', 'wpmfloc' ),
+						__( 'The plugin component %1$s does not implement the %2$s interface.', 'wpm-floc' ),
 						gettype( $component ),
 						Component_Interface::class
 					)
@@ -112,7 +112,7 @@ class Plugin {
 			throw new InvalidArgumentException(
 				sprintf(
 					/* translators: %s: slug */
-					__( 'No plugin component with the slug %s exists.', 'wpmfloc' ),
+					__( 'No plugin component with the slug %s exists.', 'wpm-floc' ),
 					$slug
 				)
 			);

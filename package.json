@@ -1,8 +1,8 @@
 {
   "version": "0.0.6",
   "title": "Disable FLoC by WP Munich",
-  "name": "wpmfloc",
-  "slug": "wpmfloc",
+  "name": "wpm-floc",
+  "slug": "wpm-floc",
   "author": "WP Munich & Luehrsen // Heinrich",
   "authorUrl": "https://www.wp-munich.com",
   "description": "A simple zero-config plugin to opt-out of Google FLoC.",

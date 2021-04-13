@@ -11,7 +11,7 @@
  * Author: <%= pkg.author %>
  * Author URI: <%= pkg.authorUrl %>
  * Version: <%= pkg.version %>
- * Text Domain: wpmfloc
+ * Text Domain: wpm-floc
  */
 
 // If this file is called directly, abort.
