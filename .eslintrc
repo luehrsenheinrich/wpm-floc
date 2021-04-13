@@ -7,7 +7,7 @@
   },
   globals: {
     'wp': true,
-    'lhpbp': true,
+    'wpmfloc': true,
   },
   rules: {
     '@wordpress/no-base-control-with-label-without-id': 'off',

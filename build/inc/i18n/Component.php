@@ -1,12 +1,12 @@
 <?php
 /**
- * _Lhpbp\i18n\Component class
+ * Wpmfloc\i18n\Component class
  *
- * @package lhpbp
+ * @package wpmfloc
  */
 
-namespace WpMunich\lhpbp\i18n;
-use WpMunich\lhpbp\Component_Interface;
+namespace WpMunich\wpmfloc\i18n;
+use WpMunich\wpmfloc\Component_Interface;
 use function add_action;
 use function load_plugin_textdomain;
 
@@ -36,7 +36,7 @@ class Component implements Component_Interface {
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain(
-			'lhpbp',
+			'wpmfloc',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

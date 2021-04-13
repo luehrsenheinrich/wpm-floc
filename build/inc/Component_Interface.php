@@ -1,11 +1,11 @@
 <?php
 /**
- * _Lhpbp\Component_Interface interface
+ * Wpmfloc\Component_Interface interface
  *
- * @package lhpbp
+ * @package wpmfloc
  */
 
-namespace WpMunich\lhpbp;
+namespace WpMunich\wpmfloc;
 
 /**
  * Interface for a plugin component.

@@ -32,8 +32,8 @@ new repository. So let's get started:
 
 ### Theme Slug & Names
 
-- [ ] Search & Replace (case sensitive) `lhpbp` with your new WordPress plugin slug
-- [ ] Search & Replace (case sensitive) `_LHPBP` with your new WordPress plugin slug in uppercase
+- [ ] Search & Replace (case sensitive) `wpmfloc` with your new WordPress plugin slug
+- [ ] Search & Replace (case sensitive) `WPMFLOC` with your new WordPress plugin slug in uppercase
 - [ ] Check success in `package.json`
 - [ ] Adjust `name` in `package.json`
 
