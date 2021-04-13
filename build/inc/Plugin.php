@@ -130,6 +130,7 @@ class Plugin {
 	protected function get_default_components() {
 		$components = array(
 			new i18n\Component(),
+			new FLoC\Component(),
 		);
 
 		return $components;
