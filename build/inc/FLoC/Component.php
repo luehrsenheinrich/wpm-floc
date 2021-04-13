@@ -27,15 +27,23 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'send_headers', array( $this, 'disable' ) );
+		add_action( 'wp_headers', array( $this, 'disable' ), 10, 2 );
 	}
 
 	/**
 	 * Send a special header to disable FLoC tracking of users.
 	 *
-	 * @return void
+	 * @param string[] $headers Associative array of headers to be sent.
+	 * @param WP       $wp      Current WordPress environment instance.
+	 *
+	 * @return string[] $headers Associative array of headers to be sent.
 	 */
-	public function disable() {
-		header( 'Permissions-Policy: interest-cohort=()' );
+	public function disable( $headers, $wp ) {
+		if ( isset( $headers['Permissions-Policy'] ) && ! empty( $headers['Permissions-Policy'] ) ) {
+			$headers['Permissions-Policy'] = $headers['Permissions-Policy'] . ', interest-cohort=()';
+		} else {
+			$headers['Permissions-Policy'] = 'interest-cohort=()';
+		}
+		return $headers;
 	}
 }
