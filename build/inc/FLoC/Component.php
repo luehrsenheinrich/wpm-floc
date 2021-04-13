@@ -8,6 +8,7 @@
 namespace WpMunich\wpmfloc\FLoC;
 use WpMunich\wpmfloc\Component_Interface;
 use function add_action;
+use function add_filter;
 
 /**
  * A class to handle textdomains and other i18n related logic..
@@ -28,6 +29,7 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_headers', array( $this, 'disable' ), 10, 2 );
+		do_action( 'wpsc_add_plugin', WPMFLOC_PATH . '/inc/FLoC/wpsc.php' );
 	}
 
 	/**
@@ -44,6 +46,7 @@ class Component implements Component_Interface {
 		} else {
 			$headers['Permissions-Policy'] = 'interest-cohort=()';
 		}
+
 		return $headers;
 	}
 }
