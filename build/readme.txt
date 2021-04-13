@@ -21,6 +21,8 @@ This plugin tells your WordPress system to send a special header that disables F
 ## More about FLoC
 [The Verge - What is FLoC on Chrome and why does it matter?](https://www.theverge.com/2021/3/30/22358287/privacy-ads-google-chrome-floc-cookies-cookiepocalypse-finger-printing)
 [Web.dev - What is Federated Learning of Cohorts (FLoC)?](https://web.dev/floc/)
+[Adalytics.io - Who is sharing data with Google's FLoC ad algorithm?](https://adalytics.io/blog/google-chrome-floc)
+[Brave Browser - Why Brave disables FLoC](https://brave.com/why-brave-disables-floc/)
 
 == Installation ==
 = From within WordPress =
