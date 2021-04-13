@@ -124,13 +124,3 @@ jobs:
           asset_path: ./update/${{ steps.package.outputs.slug }}.zip
           asset_name: ${{ steps.package.outputs.slug }}-${{ steps.version.outputs.version }}.zip
           asset_content_type: application/zip
-
-      - name: 🚢 Deploy to Update Server
-        if: ${{ success() }}
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: ${{ secrets.UPDATE_SERVER_HOST }}
-          username: ${{ secrets.UPDATE_SERVER_USER }}
-          password: ${{ secrets.UPDATE_SERVER_PASSWORD }}
-          local-dir: ./update/
-          state-name: .${{ steps.package.outputs.slug }}-sync-state.json
