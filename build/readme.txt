@@ -6,7 +6,7 @@ Tested up to: <%= pkg.testedWp %>
 Requires PHP: 7.2
 License: GPLv2
 License URI: https://www.gnu.de/documents/gpl-2.0.html
-Stable tag: trunk
+Stable tag: <%= pkg.version %>
 
 <%= pkg.description %>
 

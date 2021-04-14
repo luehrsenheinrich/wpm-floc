@@ -9,7 +9,7 @@
   "private": true,
   "license": "GPLv3",
   "minWpReq": "5.0",
-  "testedWp": "5.5",
+  "testedWp": "5.7",
   "pluginUrl": "",
   "devDependencies": {
     "@babel/core": "^7.13.15",
