@@ -136,4 +136,6 @@ jobs:
           SVN_USERNAME: ${{ secrets.WPM_SVN_USERNAME }}
           ASSETS_DIR: 'assets'
           PLUGIN_DIR: 'trunk'
+          VERSION: ${{ steps.version.outputs.version }}
+
 
