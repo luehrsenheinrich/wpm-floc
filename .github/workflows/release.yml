@@ -36,6 +36,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+        
+      - name: ⚙️ Configure npm
+        run: |
+          npm config set tag-version-prefix ''
 
       - name: ⚙️ Setup PHP with tools
         uses: shivammathur/setup-php@v2
