@@ -1,11 +1,11 @@
 {
   "version": "0.1.11",
-  "title": "Disable FLoC by WP Munich",
+  "title": "Disable FLoC",
   "name": "wpm-floc",
   "slug": "wpm-floc",
   "author": "WP Munich",
   "authorUrl": "https://www.wp-munich.com",
-  "description": "A simple zero-config plugin to opt-out of Google FLoC.",
+  "description": "A simple zero-config plugin to opt-out of Google \"Federated Learning of Cohorts\" (FLoC).",
   "private": true,
   "license": "GPLv3",
   "minWpReq": "5.0",
