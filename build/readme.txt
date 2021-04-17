@@ -11,10 +11,12 @@ Stable tag: <%= pkg.version %>
 <%= pkg.description %>
 
 == Description ==
-## Disable the tracking of your users with FLoC.
+## Disable the tracking of your users with FLoC
 
 **Federated Learning of Cohorts** (FLoC) is a replacement for third party cookies in chromium browsers like Chrome to target users with ads based on their interests. The proposed solution is better than using
 third party cookies, but it still raises concerns in terms of privacy and data protection.
+
+## How does this plugin work?
 
 This plugin tells your WordPress system to send a special header that disables FLoC on your website. There is no configuration needed besides installing the plugin.
 
