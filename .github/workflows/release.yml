@@ -126,7 +126,7 @@ jobs:
           asset_content_type: application/zip
           
       - name: Deploy to WordPress.org
-        uses: luehrsenheinrich/action-wordpress-plugin-deploy@stable
+        uses: luehrsenheinrich/action-wordpress-plugin-deploy@develop
         env:
           SVN_PASSWORD: ${{ secrets.WPM_SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.WPM_SVN_USERNAME }}
