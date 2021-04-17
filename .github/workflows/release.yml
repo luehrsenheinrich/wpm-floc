@@ -39,7 +39,7 @@ jobs:
         
       - name: ⚙️ Configure npm
         run: |
-          npm config set tag-version-prefix ''
+          npm config set tag-version-prefix '' -g
 
       - name: ⚙️ Setup PHP with tools
         uses: shivammathur/setup-php@v2
