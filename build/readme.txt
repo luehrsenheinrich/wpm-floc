@@ -41,6 +41,16 @@ If you are a developer, we encourage you to follow along or [contribute](https:/
 1. Upload the '<%= pkg.title %>' folder to the `/wp-content/plugins/` directory
 1. Activate '<%= pkg.title %>' through the 'Plugins' menu in WordPress
 
+== Frequently Asked Questions ==
+= How do I check if it is working? =
+When you look at the headers of a page request to your WordPress you should see a **Permissions-Policy** header with the value **interest-cohort=()**.
+
+= The plugin is active, but the header is not there. =
+The most common issue are caching plugins, that are often stripping headers. Make sure that HTTP Headers get cached with your site in the configuration of your page cache.
+
+= Why should I install this plugin when I'm not using the Chrome browser? =
+The plugin does not only stop your browser from tracking with FLoC, but also the browsers from all of your users. So you're not primarily installing the plugin for yourself, but for your users.
+
 == Changelog ==
 = 1.0.0 =
 * Initial release
