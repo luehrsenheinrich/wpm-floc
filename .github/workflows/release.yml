@@ -36,10 +36,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-        
-      - name: ⚙️ Configure npm
-        run: |
-          npm config set tag-version-prefix '' -g
 
       - name: ⚙️ Setup PHP with tools
         uses: shivammathur/setup-php@v2
@@ -96,6 +92,10 @@ jobs:
         id: version
         run: echo "::set-output name=version::$(npm version ${{ github.event.inputs.version }} -m 'Tagging %s' -f)"
 
+      - name: ⚙️ Get new project version
+        id: newPackage
+        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
+
       - name: 🏗 Build Release
         run: npx grunt release
 
@@ -111,8 +111,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ steps.version.outputs.version }}
-          release_name: Release ${{ steps.version.outputs.version }}
+          tag_name: ${{ steps.newPackage.outputs.version }}
+          release_name: Release ${{ steps.newPackage.outputs.version }}
           body: |
             ${{ steps.changelog.outputs.log }}
           draft: false
@@ -126,7 +126,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
           asset_path: ./update/${{ steps.package.outputs.slug }}.zip
-          asset_name: ${{ steps.package.outputs.slug }}-${{ steps.version.outputs.version }}.zip
+          asset_name: ${{ steps.package.outputs.slug }}-${{ steps.newPackage.outputs.version }}.zip
           asset_content_type: application/zip
           
       - name: Deploy to WordPress.org
@@ -136,6 +136,6 @@ jobs:
           SVN_USERNAME: ${{ secrets.WPM_SVN_USERNAME }}
           ASSETS_DIR: 'assets'
           PLUGIN_DIR: 'trunk'
-          VERSION: ${{ steps.version.outputs.version }}
+          VERSION: ${{ steps.newPackage.outputs.version }}
 
 
