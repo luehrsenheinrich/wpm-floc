@@ -18,6 +18,8 @@ third party cookies, but it still raises concerns in terms of privacy and data p
 
 This plugin tells your WordPress system to send a special header that disables FLoC on your website.
 
+If you are a developer, we encourage you to follow along or [contribute](https://github.com/luehrsenheinrich/wpm-floc) to the development of this plugin [on GitHub](https://github.com/luehrsenheinrich/wpm-floc).
+
 ## More about FLoC
 - [The Verge - What is FLoC on Chrome and why does it matter?](https://www.theverge.com/2021/3/30/22358287/privacy-ads-google-chrome-floc-cookies-cookiepocalypse-finger-printing)
 - [Web.dev - What is Federated Learning of Cohorts (FLoC)?](https://web.dev/floc/)
