@@ -1,5 +1,7 @@
 # Disable FLoC by WP Munich
 
+![Disable FLoC by WP Munich](https://raw.githubusercontent.com/luehrsenheinrich/wpm-floc/master/assets/banner-1544x500.png)
+
 [![🏗 Build & Deploy](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/main.yml)
 
 A simple zero-config plugin to opt-out of Google FLoC.

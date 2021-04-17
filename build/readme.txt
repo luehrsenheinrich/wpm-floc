@@ -11,19 +11,19 @@ Stable tag: <%= pkg.version %>
 <%= pkg.description %>
 
 == Description ==
-## Disable the tracking of your users with FLoC.
+## Disable the tracking of your users with [FLoC](https://wicg.github.io/floc/).
 
-Federated Learning of Cohorts (FLoC) is a replacement for third party cookies in chromium browser like Chrome to target users with ads based on their interests. The proposed solution is better than using
+Federated Learning of Cohorts (FLoC) is a replacement for third party cookies in chromium browsers like Chrome to target users with ads based on their interests. The proposed solution is better than using
 third party cookies, but it still raises concerns in terms of privacy and data protection.
 
 This plugin tells your WordPress system to send a special header that disables FLoC on your website.
 
 ## More about FLoC
-[The Verge - What is FLoC on Chrome and why does it matter?](https://www.theverge.com/2021/3/30/22358287/privacy-ads-google-chrome-floc-cookies-cookiepocalypse-finger-printing)
-[Web.dev - What is Federated Learning of Cohorts (FLoC)?](https://web.dev/floc/)
-[Adalytics.io - Who is sharing data with Google's FLoC ad algorithm?](https://adalytics.io/blog/google-chrome-floc)
-[Brave Browser - Why Brave disables FLoC](https://brave.com/why-brave-disables-floc/)
-[The WICG Draft for FLoC](https://wicg.github.io/floc/)
+- [The Verge - What is FLoC on Chrome and why does it matter?](https://www.theverge.com/2021/3/30/22358287/privacy-ads-google-chrome-floc-cookies-cookiepocalypse-finger-printing)
+- [Web.dev - What is Federated Learning of Cohorts (FLoC)?](https://web.dev/floc/)
+- [Adalytics.io - Who is sharing data with Google's FLoC ad algorithm?](https://adalytics.io/blog/google-chrome-floc)
+- [Brave Browser - Why Brave disables FLoC](https://brave.com/why-brave-disables-floc/)
+- [The WICG Draft for FLoC](https://wicg.github.io/floc/)
 
 == Installation ==
 = From within WordPress =
