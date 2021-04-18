@@ -59,6 +59,10 @@ The most common issue are caching plugins, that are often stripping headers. Mak
 The plugin does not only stop your browser from tracking with FLoC, but also the browsers from all of your users. So you're not primarily installing the plugin for yourself, but for your users.
 
 == Changelog ==
+= 1.1.1 =
+* Removed unneeded dependency.
+* Removed inactive JavaScript remains.
+
 = 1.1.0 =
 * Added compatibility for [WP Super Cache](https://wordpress.org/plugins/wp-super-cache/)
 
