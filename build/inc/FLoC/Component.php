@@ -29,7 +29,6 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_headers', array( $this, 'disable' ), 10, 2 );
-		do_action( 'wpsc_add_plugin', WPMFLOC_PATH . '/inc/FLoC/wpsc.php' );
 	}
 
 	/**
@@ -41,7 +40,11 @@ class Component implements Component_Interface {
 	 * @return string[] $headers Associative array of headers to be sent.
 	 */
 	public function disable( $headers, $wp ) {
-		if ( isset( $headers['Permissions-Policy'] ) && ! empty( $headers['Permissions-Policy'] ) && strpos( $headers['Permission-Policy'], 'interest-cohort' ) === false ) {
+		if (
+			isset( $headers['Permissions-Policy'] ) &&
+			! empty( $headers['Permissions-Policy'] ) &&
+			strpos( $headers['Permission-Policy'], 'interest-cohort' ) === false
+		) {
 			$headers['Permissions-Policy'] = $headers['Permissions-Policy'] . ', interest-cohort=()';
 		} else {
 			$headers['Permissions-Policy'] = 'interest-cohort=()';

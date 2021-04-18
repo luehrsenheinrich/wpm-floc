@@ -16,15 +16,14 @@ function wpmfloc_actions() {
 add_cacheaction( 'add_cacheaction', 'wpmfloc_actions' );
 
 /**
- * Add the 'Permission-Policy' header to the list of known headers in WP Super Cache.
+ * Add the 'Permissions-Policy' header to the list of known headers in WP Super Cache.
  *
  * @param  array $known_headers An array of known headers.
  *
  * @return array                An extended array of known headers.
  */
 function wpmfloc_known_headers( $known_headers = array() ) {
-	$known_headers[] = 'Permission-Policy';
-	var_dump( 'test' );
-
+	$known_headers[] = 'Permissions-Policy';
 	return $known_headers;
 }
+add_filter( 'wpsc_known_headers', 'wpmfloc_known_headers' );
