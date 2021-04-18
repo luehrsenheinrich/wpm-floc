@@ -50,10 +50,10 @@ These cache plugins are known to be compatible:
 
 == Frequently Asked Questions ==
 = How do I check if it is working? =
-When you look at the headers of a page request to your WordPress you should see a **Permissions-Policy** header with the value **interest-cohort=()**.
+You can use the 'Check FLoC' link on the *[Plugins](https://wordpress.org/support/article/managing-plugins/)* screen in your WordPress administration. Alternatively use an external tool to crawl your page. On example of such an external tool is the [Uptrends HTTP response header check](https://www.uptrends.com/tools/http-response-header-check). With that tool you have to check if the "Permissions-Policy" header is present and if it contains the value *"interest-cohort=()"*.
 
 = The plugin is active, but the header is not there. =
-The most common issue are caching plugins, that are often stripping headers. Make sure that HTTP Headers get cached with your site in the configuration of your page cache.
+The most common issues come with caching plugins, that are often stripping headers. Make sure that HTTP Headers get cached with your site in the configuration of your page cache.
 
 = Why should I install this plugin when I'm not using the Chrome browser? =
 The plugin does not only stop your browser from tracking with FLoC, but also the browsers from all of your users. So you're not primarily installing the plugin for yourself, but for your users.
