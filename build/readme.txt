@@ -29,6 +29,13 @@ If you are a developer, we encourage you to follow along or [contribute](https:/
 - [**Brave Browser** - Why Brave disables FLoC](https://brave.com/why-brave-disables-floc/)
 - [The **WICG** Draft for FLoC](https://wicg.github.io/floc/)
 
+## Compatibility with Cache Plugins
+This plugin relies on the ability to deliver HTTP headers to the browser. Some Cache Plugins actively strip these HTTP headers and therefore invalidate the purpose of this plugin.
+
+These cache plugins are known to be compatible:
+
+- [**WP Super Cache**](https://wordpress.org/plugins/wp-super-cache/) - You have to activate the "*Cache HTTP headers with page content.*" checkbox in the Advanced Tab of the WP Super Cache Settings.
+
 == Installation ==
 = From within WordPress =
 

@@ -8,6 +8,7 @@
 namespace WpMunich\wpmfloc\FLoC;
 use WpMunich\wpmfloc\Component_Interface;
 use function add_action;
+use function add_filter;
 
 /**
  * A class to handle textdomains and other i18n related logic..
@@ -39,11 +40,16 @@ class Component implements Component_Interface {
 	 * @return string[] $headers Associative array of headers to be sent.
 	 */
 	public function disable( $headers, $wp ) {
-		if ( isset( $headers['Permissions-Policy'] ) && ! empty( $headers['Permissions-Policy'] ) && strpos( $headers['Permission-Policy'], 'interest-cohort' ) === false ) {
+		if (
+			isset( $headers['Permissions-Policy'] ) &&
+			! empty( $headers['Permissions-Policy'] ) &&
+			strpos( $headers['Permission-Policy'], 'interest-cohort' ) === false
+		) {
 			$headers['Permissions-Policy'] = $headers['Permissions-Policy'] . ', interest-cohort=()';
 		} else {
 			$headers['Permissions-Policy'] = 'interest-cohort=()';
 		}
+
 		return $headers;
 	}
 }
