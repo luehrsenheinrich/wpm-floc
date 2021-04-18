@@ -59,6 +59,9 @@ The most common issue are caching plugins, that are often stripping headers. Mak
 The plugin does not only stop your browser from tracking with FLoC, but also the browsers from all of your users. So you're not primarily installing the plugin for yourself, but for your users.
 
 == Changelog ==
+= 1.2.0 =
+* Added a method to check presence of the FLoC header. The "Check FLoC" Button on your plugins page in wp-admin should do that for you.
+
 = 1.1.1 =
 * Removed unneeded dependency.
 * Removed inactive JavaScript remains.
