@@ -131,6 +131,7 @@ class Plugin {
 		$components = array(
 			new i18n\Component(),
 			new FLoC\Component(),
+			new FLoCCheck\Component(),
 			new WPSC\Component(),
 		);
 

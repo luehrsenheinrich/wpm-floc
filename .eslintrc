@@ -8,6 +8,7 @@
   globals: {
     'wp': true,
     'wpmfloc': true,
+    'wpApiSettings': true,
   },
   rules: {
     '@wordpress/no-base-control-with-label-without-id': 'off',
