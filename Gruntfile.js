@@ -221,7 +221,7 @@ module.exports = function (grunt) {
 		'postcss:minify',
 	]);
 
-	grunt.registerTask('handle_js', []);
+	grunt.registerTask('handle_js', ['webpack']);
 
 	grunt.registerTask('newer_handle_static', [
 		'newer:copy:build',
