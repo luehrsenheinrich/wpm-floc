@@ -41,7 +41,7 @@ class Component implements Component_Interface {
 	 * @return string[] $headers Associative array of headers to be sent.
 	 */
 	public function disable( $headers, $wp ) {
-		if ( isset( $headers['Permissions-Policy'] ) && ! empty( $headers['Permissions-Policy'] ) ) {
+		if ( isset( $headers['Permissions-Policy'] ) && ! empty( $headers['Permissions-Policy'] ) && strpos( $headers['Permission-Policy'], 'interest-cohort' ) === false ) {
 			$headers['Permissions-Policy'] = $headers['Permissions-Policy'] . ', interest-cohort=()';
 		} else {
 			$headers['Permissions-Policy'] = 'interest-cohort=()';
