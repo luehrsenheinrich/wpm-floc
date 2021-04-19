@@ -59,6 +59,10 @@ The most common issues come with caching plugins, that are often stripping heade
 The plugin does not only stop your browser from tracking with FLoC, but also the browsers from all of your users. So you're not primarily installing the plugin for yourself, but for your users.
 
 == Changelog ==
+= 1.2.1 =
+* Updated the asset art to better fit on social media.
+* Resolved a deprecation for jQuery 'click'. (thanks @backups)
+
 = 1.2.0 =
 * Added a method to check presence of the FLoC header. The "Check FLoC" Button on your plugins page in wp-admin should do that for you.
 
