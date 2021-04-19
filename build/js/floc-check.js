@@ -14,7 +14,7 @@ const checkFloc = function () {
 };
 
 jQuery(document).ready(function ($) {
-	$('.js--check-floc').click(() => {
+	$('.js--check-floc').on('click', () => {
 		checkFloc();
 	});
 });
