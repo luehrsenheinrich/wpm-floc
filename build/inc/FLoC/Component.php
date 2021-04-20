@@ -28,7 +28,54 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'wp_headers', array( $this, 'disable' ), 10, 2 );
+		add_action( 'init', array( $this, 'initialize_floc_blocking' ) );
+		add_filter( 'wpm_floc_blocking_methods', array( $this, 'blocking_methods' ) );
+	}
+
+	/**
+	 * Which blocking method was selected and engage the selected method.
+	 */
+	public function initialize_floc_blocking() {
+		$method  = get_option( 'wpm_floc_blocking_method', 'simple' );
+		$methods = apply_filters( 'wpm_floc_blocking_methods', array() );
+
+		if (
+			is_array( $methods ) &&
+			isset( $methods[ $method ] ) &&
+			isset( $methods[ $method ]['callback'] )
+		) {
+			call_user_func( $methods[ $method ]['callback'] );
+		}
+	}
+
+	/**
+	 * Register the blocking methods we have available.
+	 *
+	 * @param  array $methods An array of methods.
+	 *
+	 * @return array           A modified array of methods.
+	 */
+	public function blocking_methods( $methods = array() ) {
+
+		$methods['none'] = array(
+			'title' => __( 'None / Allow FLoC' ),
+		);
+
+		$methods['simple'] = array(
+			'title'    => __( 'Simple / PHP' ),
+			'callback' => array( $this, 'initialize_simple' ),
+		);
+
+		return $methods;
+	}
+
+	/**
+	 * Initialize the simple blocking methods.
+	 *
+	 * @return void
+	 */
+	public function initialize_simple() {
+		add_action( 'wp_headers', array( $this, 'modify_headers' ), 10, 2 );
 	}
 
 	/**
@@ -39,7 +86,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string[] $headers Associative array of headers to be sent.
 	 */
-	public function disable( $headers, $wp ) {
+	public function modify_headers( $headers, $wp ) {
 		if (
 			isset( $headers['Permissions-Policy'] ) &&
 			! empty( $headers['Permissions-Policy'] ) &&
