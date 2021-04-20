@@ -30,6 +30,7 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_init', array( $this, 'add_settings_fields' ) );
+		add_action( 'load-options-reading.php', array( $this, 'render_help' ) );
 		add_filter( 'plugin_action_links', array( $this, 'add_plugin_link' ), 10, 2 );
 	}
 
@@ -69,6 +70,44 @@ class Component implements Component_Interface {
 			array( $this, 'render_floc_text' ),
 			'reading'
 		);
+	}
+
+	/**
+	 * Render the help tab.
+	 *
+	 * @return void
+	 */
+	public function render_help() {
+		get_current_screen()->add_help_tab(
+			array(
+				'id'       => 'wpm-floc',
+				'title'    => __( 'FLoC' ),
+				'priority' => 11,
+				'callback' => array( $this, 'get_help_text' ),
+			)
+		);
+	}
+
+	/**
+	 * Render the help text.
+	 *
+	 * @return void
+	 */
+	public function get_help_text() {
+		$content  = '<p>' . __( 'The "Disable FLoC" by WP Munich plugin gives you different methods to block FLoC tracking. These methods provide different strategies to register the HTTP Header needed to signal the opt-out from FLoC.', 'wpm-floc' ) . '</p>';
+		$content .= '<p>' . __( 'Different WordPress, server and cache configurations require different methods. You can test the success of the opt-out with the "Check FLoC" button.', 'wpm-floc' ) . '</p>';
+
+		$content .= '<p>' . __( 'The following blocking methods are available:', 'wpm-floc' ) . '</p>';
+
+		$methods = apply_filters( 'wpm_floc_blocking_methods', array() );
+		foreach ( $methods as $slug => $method ) {
+
+			if ( isset( $method['title'] ) && isset( $method['description'] ) ) {
+				$content .= '<p><strong>' . $method['title'] . '</strong>: ' . $method['description'] . '</p>';
+			}
+		}
+
+		echo $content;
 	}
 
 	/**
