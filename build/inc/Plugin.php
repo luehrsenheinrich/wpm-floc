@@ -133,6 +133,7 @@ class Plugin {
 			new FLoC\Component(),
 			new FLoCCheck\Component(),
 			new WPSC\Component(),
+			new Settings\Component(),
 		);
 
 		return $components;
