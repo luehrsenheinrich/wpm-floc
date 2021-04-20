@@ -107,6 +107,9 @@ class Component implements Component_Interface {
 			}
 		}
 
+		/* translators: WordPress.org plugin review url. */
+		$content .= '<p>' . sprintf( __( 'If you read this far you seem really interested. If you like this plugin we would love you to give it a <a href="%s" target="_blank">5-star rating in the WordPress repository</a>.', 'wpm-floc' ), 'https://wordpress.org/support/plugin/wpm-floc/reviews/#new-post' ) . '</p>';
+
 		echo $content;
 	}
 
