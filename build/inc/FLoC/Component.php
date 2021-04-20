@@ -72,7 +72,7 @@ class Component implements Component_Interface {
 		$methods['apache'] = array(
 			'title'       => __( 'Apache / .htaccess' ),
 			'callback'    => array( $this, 'initialize_apache' ),
-			'description' => __( 'When you have to override your theme. Works on apache servers with the "mod_headers" module installed. Writes the header into the .htaccess file.', 'wpm-floc' ),
+			'description' => __( 'When you have to circumvent your cache. Works on apache servers with the "mod_headers" module installed. Writes the header into the .htaccess file.', 'wpm-floc' ),
 		);
 
 		return $methods;

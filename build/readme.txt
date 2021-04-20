@@ -29,10 +29,18 @@ If you are a developer, we encourage you to follow along or [contribute](https:/
 - [**Brave Browser** - Why Brave disables FLoC](https://brave.com/why-brave-disables-floc/)
 - [The **WICG** Draft for FLoC](https://wicg.github.io/floc/)
 
+## Blocking Methods
+
+This plugin offers different methods implement the FLoC blocking HTTP header.
+
+- **None / Allow FLoC**: This method does not provide an opt-out from FLoC.
+- **Simple / PHP**: Works for most WordPress setups. Uses the "wp_headers" filter to provide the HTTP header.
+- **Apache / .htaccess**: When you have to circumvent your cache. Only works on apache servers with the "mod_headers" module installed. Writes the HTTP header into the .htaccess file.
+
 ## Compatibility with Cache Plugins
 This plugin relies on the ability to deliver HTTP headers to the browser. Some Cache Plugins actively strip these HTTP headers and therefore invalidate the purpose of this plugin.
 
-These cache plugins are known to be compatible:
+These cache plugins are known to be compatible with the **Simple** method:
 
 - [**WP Super Cache**](https://wordpress.org/plugins/wp-super-cache/) - You have to activate the "*Cache HTTP headers with page content.*" checkbox in the Advanced Tab of the WP Super Cache Settings.
 
