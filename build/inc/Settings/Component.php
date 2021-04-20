@@ -30,6 +30,7 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_init', array( $this, 'add_settings_fields' ) );
+		add_filter( 'plugin_action_links', array( $this, 'add_plugin_link' ), 10, 2 );
 	}
 
 	/**
@@ -59,6 +60,13 @@ class Component implements Component_Interface {
 			'wpm_floc_blocking_method',
 			__( 'FLoC blocking method', 'wpm-floc' ),
 			array( $this, 'render_blocking_method_field' ),
+			'reading'
+		);
+
+		add_settings_field(
+			'wpm_floc_test',
+			__( 'FLoC test', 'wpm-floc' ),
+			array( $this, 'render_floc_text' ),
 			'reading'
 		);
 	}
@@ -91,5 +99,46 @@ class Component implements Component_Interface {
 		$description = '<p class="description">' . __( 'Select a FLoC blocking method suitable for your system. <br />You can learn more about the blocking methods in the help section of this page.' ) . '</p>';
 
 		echo $description;
+	}
+
+	/**
+	 * Render the floc check button.
+	 */
+	public function render_floc_text() {
+		$button  = '<label for="wpm-floc-check">';
+		$button .= '<button class="button js--check-floc" type="button" name="wpm-floc-check">';
+		$button .= __( 'Check FLoC', 'wpm-floc' );
+		$button .= '</button> ';
+		$button .= '<span class="js--check-floc-icons">';
+
+		$button .= '<span class="dashicons dashicons-update-alt hidden wpm-loading"></span>';
+		$button .= '<span class="dashicons dashicons-yes hidden wpm-success"></span>';
+		$button .= '<span class="dashicons dashicons-no hidden wpm-error"></span>';
+
+		$button .= '</span> <span class="js--check-floc-result"></span>';
+		$button .= '</label>';
+
+		echo $button;
+
+		$description = '<p class="description">' . __( 'Click this button to check if the FLoC header is present in the frontend.' ) . '</p>';
+
+		echo $description;
+	}
+
+	/**
+	 * Add plugin links for the FLoC Check.
+	 *
+	 * @param array  $plugin_actions The existing plugin actions.
+	 * @param string $plugin_file   The file of the current plugin being parsed.
+	 *
+	 * @return array The extended plugin actions.
+	 */
+	public function add_plugin_link( $plugin_actions, $plugin_file ) {
+
+		if ( strpos( $plugin_file, 'wpmfloc.php' ) !== false ) {
+			$plugin_actions['floc_check'] = '<a href="' . admin_url( 'options-reading.php' ) . '">' . __( 'Settings', 'wpm-floc' ) . '</a>';
+		}
+
+		return $plugin_actions;
 	}
 }

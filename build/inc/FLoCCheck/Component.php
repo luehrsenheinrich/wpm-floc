@@ -77,6 +77,7 @@ class Component implements Component_Interface {
 			return new WP_REST_Response(
 				array(
 					'status'   => 200,
+					'success'  => true,
 					'response' => __( 'SUCCESS: A valid FLoC header has been found.', 'wpm-floc' ),
 				)
 			);
@@ -84,6 +85,7 @@ class Component implements Component_Interface {
 			return new WP_REST_Response(
 				array(
 					'status'   => 200,
+					'success'  => false,
 					'response' => __( 'ERROR: A valid FLoC header has not been found.', 'wpm-floc' ),
 				)
 			);
@@ -159,7 +161,7 @@ class Component implements Component_Interface {
 	 * @return void
 	 */
 	public function enqueue_scripts( $hook_suffix ) {
-		$enqueue_in = array( 'plugins.php' );
+		$enqueue_in = array( 'plugins.php', 'options-reading.php' );
 
 		if ( in_array( $hook_suffix, $enqueue_in, true ) ) {
 			wp_enqueue_script( 'wpm-floc-check' );
