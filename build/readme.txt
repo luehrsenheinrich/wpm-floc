@@ -1,6 +1,6 @@
 === <%= pkg.title %> ===
 Contributors: wpmunich,luehrsen
-Tags: privacy,floc,header,federated,cohorts,tracking
+Tags: privacy,floc,header,federated,cohorts,tracking,google,privacy,gdpr,dsgvo
 Requires at least: <%= pkg.minWpReq %>
 Tested up to: <%= pkg.testedWp %>
 Requires PHP: 7.2
