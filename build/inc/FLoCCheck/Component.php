@@ -33,8 +33,6 @@ class Component implements Component_Interface {
 
 		add_action( 'init', array( $this, 'register_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-
-		add_filter( 'plugin_action_links', array( $this, 'add_plugin_link' ), 10, 2 );
 	}
 
 	/**
@@ -166,22 +164,5 @@ class Component implements Component_Interface {
 		if ( in_array( $hook_suffix, $enqueue_in, true ) ) {
 			wp_enqueue_script( 'wpm-floc-check' );
 		}
-	}
-
-	/**
-	 * Add plugin links for the FLoC Check.
-	 *
-	 * @param array  $plugin_actions The existing plugin actions.
-	 * @param string $plugin_file   The file of the current plugin being parsed.
-	 *
-	 * @return array The extended plugin actions.
-	 */
-	public function add_plugin_link( $plugin_actions, $plugin_file ) {
-
-		if ( strpos( $plugin_file, 'wpmfloc.php' ) !== false ) {
-			$plugin_actions['floc_check'] = '<a href="#check_floc" class="js--check-floc">' . __( 'Check FLoC', 'wpm-floc' ) . '</a>';
-		}
-
-		return $plugin_actions;
 	}
 }
