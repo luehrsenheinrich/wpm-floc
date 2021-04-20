@@ -58,12 +58,14 @@ class Component implements Component_Interface {
 	public function blocking_methods( $methods = array() ) {
 
 		$methods['none'] = array(
-			'title' => __( 'None / Allow FLoC' ),
+			'title'       => __( 'None / Allow FLoC' ),
+			'description' => __( 'This method does not provide an opt-out from FLoC.', 'wpm-floc' ),
 		);
 
 		$methods['simple'] = array(
-			'title'    => __( 'Simple / PHP' ),
-			'callback' => array( $this, 'initialize_simple' ),
+			'title'       => __( 'Simple / PHP' ),
+			'callback'    => array( $this, 'initialize_simple' ),
+			'description' => __( 'Works for most WordPress setups. Uses the "wp_headers" filter to provide the HTTP header.', 'wpm-floc' ),
 		);
 
 		return $methods;
