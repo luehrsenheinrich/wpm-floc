@@ -63,6 +63,7 @@ The plugin does not only stop your browser from tracking with FLoC, but also the
 = <%= pkg.version %> =
 * Added some proper settings found in the 'Reading' settings.
 * Added help text to the 'Reading' page to explain these settings.
+* Add the 'apache' method to disable FLoC in complicated hosting settings.
 
 = 1.2.1 =
 * Updated the asset art to better fit on social media.

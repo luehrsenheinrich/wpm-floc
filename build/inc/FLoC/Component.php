@@ -30,6 +30,7 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'init', array( $this, 'initialize_floc_blocking' ) );
 		add_filter( 'wpm_floc_blocking_methods', array( $this, 'blocking_methods' ) );
+		add_action( 'update_option_wpm_floc_blocking_method', array( $this, 'on_update_method' ), 10, 3 );
 	}
 
 	/**
@@ -68,6 +69,12 @@ class Component implements Component_Interface {
 			'description' => __( 'Works for most WordPress setups. Uses the "wp_headers" filter to provide the HTTP header.', 'wpm-floc' ),
 		);
 
+		$methods['apache'] = array(
+			'title'       => __( 'Apache / .htaccess' ),
+			'callback'    => array( $this, 'initialize_apache' ),
+			'description' => __( 'When you have to override your theme. Works on apache servers with the "mod_headers" module installed. Writes the header into the .htaccess file.', 'wpm-floc' ),
+		);
+
 		return $methods;
 	}
 
@@ -100,5 +107,48 @@ class Component implements Component_Interface {
 		}
 
 		return $headers;
+	}
+
+	/**
+	 * Initialize the apache method.
+	 *
+	 * @return void
+	 */
+	public function initialize_apache() {
+		add_filter( 'mod_rewrite_rules', array( $this, 'filter_rewrite_rules' ) );
+	}
+
+	/**
+	 * Filter the rewrite rules being written into .htaccess.
+	 *
+	 * @param string $rules mod_rewrite Rewrite rules formatted for .htaccess.
+	 *
+	 * @return string mod_rewrite Rewrite rules formatted for .htaccess.
+	 */
+	public function filter_rewrite_rules( $rules = '' ) {
+
+		$rules .= "\n\n# Added by Disable FLoC by WP Munich\n";
+		$rules .= "<IfModule mod_headers.c>\n";
+		$rules .= "	Header always set Permissions-Policy \"interest-cohort=()\"\n";
+		$rules .= "</IfModule>\n";
+
+		return $rules;
+	}
+
+	/**
+	 * Handle stuff when the method updates.
+	 *
+	 * @param mixed  $old_value The old option value.
+	 * @param mixed  $value     The new option value.
+	 * @param string $option    Option name.
+	 *
+	 * @return void
+	 */
+	public function on_update_method( $old_value, $value, $option ) {
+		if ( $old_value === 'apache' || $value === 'apache' ) {
+			// The apache method writes into .htaccess
+			// so we have to perform a flush before and after activation.
+			flush_rewrite_rules();
+		}
 	}
 }
