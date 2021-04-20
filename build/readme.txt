@@ -1,6 +1,6 @@
 === <%= pkg.title %> ===
 Contributors: wpmunich,luehrsen
-Tags: privacy,floc,header,federated,cohorts,tracking
+Tags: privacy,floc,header,federated,cohorts,tracking,google,privacy,gdpr,dsgvo
 Requires at least: <%= pkg.minWpReq %>
 Tested up to: <%= pkg.testedWp %>
 Requires PHP: 7.2
@@ -59,6 +59,10 @@ The most common issues come with caching plugins, that are often stripping heade
 The plugin does not only stop your browser from tracking with FLoC, but also the browsers from all of your users. So you're not primarily installing the plugin for yourself, but for your users.
 
 == Changelog ==
+
+= <%= pkg.version %> =
+* Added some proper settings found in the 'Reading' settings.
+
 = 1.2.1 =
 * Updated the asset art to better fit on social media.
 * Resolved a deprecation for jQuery 'click'. (thanks @backups)
