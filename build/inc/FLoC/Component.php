@@ -90,21 +90,26 @@ class Component implements Component_Interface {
 	/**
 	 * Send a special header to disable FLoC tracking of users.
 	 *
+	 * @see https://make.wordpress.org/core/2021/04/18/proposal-treat-floc-as-a-security-concern/
+	 *
 	 * @param string[] $headers Associative array of headers to be sent.
 	 * @param WP       $wp      Current WordPress environment instance.
 	 *
 	 * @return string[] $headers Associative array of headers to be sent.
 	 */
 	public function modify_headers( $headers, $wp ) {
-		if (
-			isset( $headers['Permissions-Policy'] ) &&
-			! empty( $headers['Permissions-Policy'] ) &&
-			strpos( $headers['Permission-Policy'], 'interest-cohort' ) === false
-		) {
-			$headers['Permissions-Policy'] = $headers['Permissions-Policy'] . ', interest-cohort=()';
-		} else {
-			$headers['Permissions-Policy'] = 'interest-cohort=()';
+		$permissions = array();
+		if ( ! empty( $headers['Permissions-Policy'] ) ) {
+			// Abort if cohorts has already been added.
+			if ( strpos( $headers['Permissions-Policy'], 'interest-cohort' ) !== false ) {
+					return $headers;
+			}
+
+			$permissions = explode( ',', $headers['Permissions-Policy'] );
 		}
+
+		$permissions[]                 = 'interest-cohort =()';
+		$headers['Permissions-Policy'] = implode( ',', $permissions );
 
 		return $headers;
 	}
