@@ -69,6 +69,9 @@ The plugin does not only stop your browser from tracking with FLoC, but also the
 == Changelog ==
 
 = <%= pkg.version %> =
+* Refactored the simple blocking method as suggested by @tjnowell in the FLoC discussion in *make core*.
+
+= 1.3.0 =
 * Added some proper settings found in the 'Reading' settings.
 * Added help text to the 'Reading' page to explain these settings.
 * Add the 'apache' method to disable FLoC in complicated hosting settings.
