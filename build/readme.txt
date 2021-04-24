@@ -69,6 +69,9 @@ The plugin does not only stop your browser from tracking with FLoC, but also the
 == Changelog ==
 
 = <%= pkg.version %> =
+* Fixed a minor issue with a whitespace where it should not have been.
+
+= 1.3.2 =
 * Refactored the simple blocking method as suggested by @tjnowell in the FLoC discussion in *make core*.
 
 = 1.3.0 =
