@@ -108,7 +108,7 @@ class Component implements Component_Interface {
 			$permissions = explode( ',', $headers['Permissions-Policy'] );
 		}
 
-		$permissions[]                 = 'interest-cohort =()';
+		$permissions[]                 = 'interest-cohort=()';
 		$headers['Permissions-Policy'] = implode( ',', $permissions );
 
 		return $headers;
