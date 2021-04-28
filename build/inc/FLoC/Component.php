@@ -59,18 +59,18 @@ class Component implements Component_Interface {
 	public function blocking_methods( $methods = array() ) {
 
 		$methods['none'] = array(
-			'title'       => __( 'None / Allow FLoC' ),
+			'title'       => __( 'None / Allow FLoC', 'wpm-floc' ),
 			'description' => __( 'This method does not provide an opt-out from FLoC.', 'wpm-floc' ),
 		);
 
 		$methods['simple'] = array(
 			'title'       => __( 'Simple / PHP' ),
-			'callback'    => array( $this, 'initialize_simple' ),
+			'callback'    => array( $this, 'initialize_simple', 'wpm-floc' ),
 			'description' => __( 'Works for most WordPress setups. Uses the "wp_headers" filter to provide the HTTP header.', 'wpm-floc' ),
 		);
 
 		$methods['apache'] = array(
-			'title'       => __( 'Apache / .htaccess' ),
+			'title'       => __( 'Apache / .htaccess', 'wpm-floc' ),
 			'callback'    => array( $this, 'initialize_apache' ),
 			'description' => __( 'When you have to circumvent your cache. Works on apache servers with the "mod_headers" module installed. Writes the header into the .htaccess file.', 'wpm-floc' ),
 		);
