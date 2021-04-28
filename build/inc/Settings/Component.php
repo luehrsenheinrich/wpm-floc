@@ -138,7 +138,7 @@ class Component implements Component_Interface {
 
 		echo $select;
 
-		$description = '<p class="description">' . __( 'Select a FLoC blocking method suitable for your system. <br />You can learn more about the blocking methods in the help section of this page.' ) . '</p>';
+		$description = '<p class="description">' . __( 'Select a FLoC blocking method suitable for your system. <br />You can learn more about the blocking methods in the help section of this page.', 'wpm-floc' ) . '</p>';
 
 		echo $description;
 	}
@@ -162,7 +162,7 @@ class Component implements Component_Interface {
 
 		echo $button;
 
-		$description = '<p class="description">' . __( 'Click this button to check if the FLoC header is present in the frontend.' ) . '</p>';
+		$description = '<p class="description">' . __( 'Click this button to check if the FLoC header is present in the frontend.', 'wpm-floc' ) . '</p>';
 
 		echo $description;
 	}
